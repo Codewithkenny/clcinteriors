@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="CLC Interiors catalogue. Interior design, custom furniture and space transformations.">
+  <meta name="theme-color" content="#171615">
+  <title>CLC Interiors | Catalogue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="CLC Interiors home">
+      <span class="brand-mark"><span class="brand-red">C</span>LC<span class="brand-dot"></span></span>
+      <span class="brand-sub">INTERIORS</span>
+    </a>
+    <button class="share-button" type="button" data-share>Share Catalogue <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <main id="top">
+    <section class="hero section-dark" aria-labelledby="hero-title">
+      <div class="hero-media reveal-media">
+        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=2200&q=88"
+          alt="Warm contemporary living room interior">
+      </div>
+      <div class="hero-copy reveal-up">
+        <p class="eyebrow">CLC INTERIORS · LAGOS</p>
+        <h1 id="hero-title">Transforming<br>vision into spaces<span class="red-dot">.</span></h1>
+        <p class="hero-text">Interior design, custom furniture and thoughtful transformations created around the way you
+          live.</p>
+        <div class="hero-actions">
+          <a class="button button-red" href="#transformations">Explore transformations <span>↓</span></a>
+          <button class="button button-outline" type="button" data-share>Share Catalogue <span>↗</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="services section-light" aria-labelledby="services-title">
+      <div class="section-intro reveal-up">
+        <p class="eyebrow">01 · WHAT WE DO</p>
+        <h2 id="services-title">Designed for the<br>way you live<span class="red-dot">.</span></h2>
+        <p>From a single furniture piece to a complete interior, CLC Interiors brings design, craftsmanship and finish
+          together.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card reveal-up"><span class="service-number">01</span>
+          <h3>Interior Design</h3>
+          <p>Spaces shaped around your lifestyle, taste and everyday needs.</p>
+        </article>
+        <article class="service-card reveal-up"><span class="service-number">02</span>
+          <h3>Custom Furniture</h3>
+          <p>Made to measure sofas, beds, dining pieces and statement furniture.</p>
+        </article>
+        <article class="service-card reveal-up"><span class="service-number">03</span>
+          <h3>Space Transformation</h3>
+          <p>From first concept to final styling, we bring the complete room together.</p>
+        </article>
+        <article class="service-card reveal-up"><span class="service-number">04</span>
+          <h3>Furniture Production</h3>
+          <p>Thoughtful construction, upholstery and finishing for distinctive pieces.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="transformations section-light" id="transformations" aria-labelledby="transformations-title">
+      <div class="transformation-heading reveal-up">
+        <div>
+          <p class="eyebrow">02 · THE TRANSFORMATION</p>
+
+          <h2 id="transformations-title">
+            From concept to<br>
+            finished piece<span class="red-dot">.</span>
+          </h2>
+
+          <p>
+            See the work in progress, then see where it ends. Furniture and
+            spaces are shown as real transformations, not just finished photographs.
+          </p>
+        </div>
+
+        <div class="filter-tabs" role="tablist" aria-label="Transformation categories">
+          <button class="filter-tab active" type="button" data-filter="all" role="tab" aria-selected="true">
+            All
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="sofas" role="tab" aria-selected="false">
+            Sofas
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="beds" role="tab" aria-selected="false">
+            Beds
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="dining" role="tab" aria-selected="false">
+            Dining
+          </button>
+
+          <button class="filter-tab" type="button" data-filter="spaces" role="tab" aria-selected="false">
+            Spaces
+          </button>
+        </div>
+      </div>
+
+      <article class="featured-transformation reveal-up" data-featured data-category="sofas">
+        <div class="transformation-stage" data-stage tabindex="0" role="button"
+          aria-label="Show before and after transformation">
+          <div class="stage-image-wrap stage-before-wrap">
+            <img class="stage-image stage-before-image" data-stage-before src="./assets/images/sofa_1.jpeg"
+              alt="Furniture work in progress">
+          </div>
+
+          <div class="stage-image-wrap stage-after-wrap">
+            <img class="stage-image stage-after-image" data-stage-after src="./assets/images/sofa_2.jpeg"
+              alt="Finished CLC Interiors furniture">
+          </div>
+
+          <div class="stage-overlay"></div>
+
+          <div class="stage-topline">
+            <span class="stage-label" data-stage-label>
+              BEFORE
+            </span>
+
+            <span class="stage-hint">
+              <span class="stage-pulse"></span>
+              AUTO · CLICK TO SWITCH
+            </span>
+          </div>
+
+          <div class="stage-bottomline">
+            <span data-stage-caption>
+              Work in progress
+            </span>
+
+            <span data-stage-count>
+              01 / 05
+            </span>
+          </div>
+
+          <div class="stage-progress" aria-hidden="true">
+            <span data-stage-progress></span>
+          </div>
+
+          <button class="stage-toggle" type="button" data-stage-toggle aria-label="Show after image">
+            ↔
+          </button>
+        </div>
+
+        <div class="transformation-info">
+          <div>
+            <span class="project-index" data-project-index>
+              01 / 05
+            </span>
+
+            <span class="project-type" data-project-type>
+              SOFA
+            </span>
+
+            <h3 data-project-title>
+              Custom Lounge Sofa
+            </h3>
+
+            <p data-project-description>
+              A furniture piece moves from workshop construction to a finished
+              statement piece designed for its space.
+            </p>
+          </div>
+
+          <a class="button button-red" data-project-link href="https://www.tiktok.com/@wemimoney_" target="_blank"
+            rel="noopener">
+            Enquire on TikTok <span>↗</span>
+          </a>
+        </div>
+      </article>
+
+      <div class="transformation-grid" data-transformation-grid aria-label="More transformations"></div>
+    </section>
+
+    <section class="finished section-dark" aria-labelledby="finished-title">
+      <div class="finished-copy reveal-up">
+        <p class="eyebrow">03 · FINISHED WORK</p>
+        <h2 id="finished-title">The finished story<span class="red-dot">.</span></h2>
+        <p>A closer look at completed furniture and spaces. This is where craftsmanship, styling and the original vision
+          come together.</p>
+        <a class="text-link finished-chat" href="https://www.tiktok.com/@wemimoney_" target="_blank" rel="noopener">Chat
+          with us <span>↗</span></a>
+      </div>
+      <div class="finished-gallery">
+        <figure class="gallery-large reveal-media"><img
+            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=88"
+            alt="Finished contemporary sofa"></figure>
+        <figure class="gallery-small reveal-media"><img
+            src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=88"
+            alt="Finished bedroom interior"></figure>
+        <figure class="gallery-small reveal-media"><img
+            src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=88"
+            alt="Finished living space"></figure>
+      </div>
+    </section>
+
+    <section class="process section-light" aria-labelledby="process-title">
+      <div class="section-intro reveal-up">
+        <p class="eyebrow">04 · OUR PROCESS</p>
+        <h2 id="process-title">From idea to<br>installation<span class="red-dot">.</span></h2>
+      </div>
+      <ol class="process-list">
+        <li class="process-item reveal-up"><span>01</span>
+          <div>
+            <h3>Discover</h3>
+            <p>We understand your space, needs, taste and vision.</p>
+          </div>
+        </li>
+        <li class="process-item reveal-up"><span>02</span>
+          <div>
+            <h3>Design</h3>
+            <p>Concepts, materials and details are brought together into a clear direction.</p>
+          </div>
+        </li>
+        <li class="process-item reveal-up"><span>03</span>
+          <div>
+            <h3>Create</h3>
+            <p>Furniture and interior elements are produced with care and attention to finish.</p>
+          </div>
+        </li>
+        <li class="process-item reveal-up"><span>04</span>
+          <div>
+            <h3>Install</h3>
+            <p>The final pieces are placed, styled and brought to life.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="connect section-light" aria-labelledby="connect-title">
+      <div class="connect-copy reveal-up">
+        <p class="eyebrow">05 · STAY CONNECTED</p>
+        <h2 id="connect-title">See more of<br>CLC Interiors<span class="red-dot">.</span></h2>
+        <p>Follow the work, behind the scenes and new finished pieces on TikTok and Instagram.</p>
+        <div class="social-links"><a href="https://www.instagram.com/clcinteriors/" target="_blank"
+            rel="noopener">Instagram ↗</a><a href="https://www.tiktok.com/@wemimoney_" target="_blank"
+            rel="noopener">TikTok ↗</a></div>
+      </div>
+      <div class="qr-card reveal-up">
+        <div>
+          <p class="eyebrow">SCAN TO ENQUIRE</p>
+          <h3>Connect with CLC Interiors</h3>
+          <p>Scan to open TikTok and send an enquiry.</p>
+        </div><a class="qr-box" href="https://www.tiktok.com/@wemimoney_" target="_blank" rel="noopener"
+          aria-label="Open CLC Interiors on TikTok">
+          <div id="tiktokQr" aria-hidden="true"></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="final-cta section-dark" aria-labelledby="cta-title">
+      <div class="cta-image"><img
+          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2200&q=88"
+          alt="Elegant completed interior"></div>
+      <div class="cta-overlay"></div>
+      <div class="cta-content reveal-up">
+        <p class="eyebrow">06 · YOUR SPACE</p>
+        <h2 id="cta-title">Have a project<br>in mind<span class="red-dot">?</span></h2>
+        <p>Let's turn the idea into something you can live with.</p><a class="button button-red"
+          href="https://www.tiktok.com/@wemimoney_" target="_blank" rel="noopener">Enquire on TikTok <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><a class="brand footer-brand" href="#top"><span class="brand-mark"><span class="brand-red">C</span>LC<span
+            class="brand-dot"></span></span><span class="brand-sub">INTERIORS</span></a>
+      <p>Interior design · Custom furniture · Space transformation</p>
+    </div>
+    <div class="footer-actions"><button type="button" data-share>Share Catalogue ↗</button><a
+        href="https://www.instagram.com/clcinteriors/" target="_blank" rel="noopener">Instagram ↗</a><a
+        href="https://www.tiktok.com/@wemimoney_" target="_blank" rel="noopener">TikTok ↗</a></div><small>© <span
+        id="year"></span> CLC Interiors. All rights reserved.</small>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"><span class="toast-icon" aria-hidden="true">✓</span><span
+      class="toast-message"></span></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
