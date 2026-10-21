@@ -79,71 +79,53 @@ const projects = [
     id: 0,
     category: "sofas",
     type: "SOFA",
-    title: "Custom Lounge Sofa",
+    title: "Sofa Frame to Finish · Demo",
     before: `${IMAGE_ROOT}/sofa_1.jpeg`,
     after: `${IMAGE_ROOT}/sofa_2.jpeg`,
-    beforeAlt: "Custom sofa before completion",
-    afterAlt: "Finished custom sofa",
-    beforeCaption: "Work in progress",
-    afterCaption: "Finished piece",
-    description:
-      "A furniture piece moves from workshop construction to a finished statement piece designed for its space.",
+    beforeAlt: "Unfinished sofa frame, stock example of furniture making",
+    afterAlt: "Finished sofa, stock example",
+    beforeCaption: "Making process",
+    afterCaption: "Finished result",
+    description: "Stock photo example showing an unfinished sofa frame and a finished upholstered result.",
   },
   {
     id: 1,
     category: "beds",
     type: "BED",
-    title: "Custom Upholstered Bed",
+    title: "Bed Frame to Finish · Demo",
     before: `${IMAGE_ROOT}/bed_1.jpeg`,
     after: `${IMAGE_ROOT}/bed_2.jpeg`,
-    beforeAlt: "Custom bed before completion",
-    afterAlt: "Finished upholstered bed",
-    beforeCaption: "Work in progress",
-    afterCaption: "Finished bedroom",
-    description:
-      "A custom upholstered bed created and finished for a comfortable client space.",
+    beforeAlt: "Unfinished bed frame, stock example of furniture making",
+    afterAlt: "Finished upholstered bed, stock example",
+    beforeCaption: "Making process",
+    afterCaption: "Finished result",
+    description: "Stock photo example showing a bed frame during construction and the finished bed.",
   },
   {
     id: 2,
     category: "dining",
     type: "DINING",
-    title: "Dining Table & Chairs",
-    before: `${IMAGE_ROOT}/dining_1.jpeg`,
+    title: "Dining Furniture · Demo",
+    before: `${IMAGE_ROOT}/stock-dining-making.jpg`,
     after: `${IMAGE_ROOT}/dining_2.jpeg`,
-    beforeAlt: "Dining furniture before completion",
-    afterAlt: "Finished dining furniture",
-    beforeCaption: "Work in progress",
-    afterCaption: "Finished dining set",
-    description:
-      "A dining furniture project from production through to final installation.",
+    beforeAlt: "Carpenter working in a furniture workshop, stock example",
+    afterAlt: "Finished dining furniture, stock example",
+    beforeCaption: "Making process",
+    afterCaption: "Finished result",
+    description: "Stock photos illustrating furniture making and a finished dining setting; they are not the same project.",
   },
   {
     id: 3,
-    category: "spaces",
-    type: "SPACE",
-    title: "Living Room Transformation",
-    before: `${IMAGE_ROOT}/spaces_1.jpeg`,
-    after: `${IMAGE_ROOT}/spaces_2.jpg`,
-    beforeAlt: "Living room before transformation",
-    afterAlt: "Finished living room",
-    beforeCaption: "Before transformation",
-    afterCaption: "Finished space",
-    description:
-      "A complete living room transformation using custom furniture and styling.",
-  },
-  {
-    id: 4,
     category: "sofas",
     type: "SOFA",
-    title: "Statement Seating",
-    before: `${IMAGE_ROOT}/sofa_1.jpeg`,
-    after: `${IMAGE_ROOT}/sofa_2.jpeg`,
-    beforeAlt: "Statement seating before completion",
-    afterAlt: "Finished statement seating",
-    beforeCaption: "Work in progress",
-    afterCaption: "Finished seating",
-    description:
-      "A statement seating project refined through upholstery and finishing.",
+    title: "Sofa Upholstery · Demo",
+    before: `${IMAGE_ROOT}/stock-sofa-making.jpg`,
+    after: `${IMAGE_ROOT}/stock-sofa-finished.jpg`,
+    beforeAlt: "Workers assembling sofa cushions in a workshop, stock photo",
+    afterAlt: "Finished sofa in a living room, stock photo",
+    beforeCaption: "Making process",
+    afterCaption: "Finished result",
+    description: "Stock photos showing upholstery work and a finished sofa; they are not the same project.",
   },
 ];
 
@@ -155,7 +137,7 @@ const stageLabel = document.querySelector("[data-stage-label]");
 const stageCaption = document.querySelector("[data-stage-caption]");
 const stageCount = document.querySelector("[data-stage-count]");
 const stageProgress = document.querySelector("[data-stage-progress]");
-const stageToggle = document.querySelector("[data-stage-toggle]");
+const stageViewButtons = document.querySelectorAll("[data-stage-view]");
 const projectIndex = document.querySelector("[data-project-index]");
 const projectType = document.querySelector("[data-project-type]");
 const projectTitle = document.querySelector("[data-project-title]");
@@ -164,9 +146,6 @@ const transformationGrid = document.querySelector("[data-transformation-grid]");
 
 let activeProject = 0;
 let showingAfter = false;
-let autoTimer = null;
-
-const AUTO_MS = 4800;
 
 function createTransformationCard(project) {
   const card = document.createElement("article");
@@ -196,7 +175,7 @@ function createTransformationCard(project) {
         loading="lazy"
       >
 
-      <span>VIEW TRANSFORMATION</span>
+    <span>HOW IT’S MADE · FINISHED RESULT</span>
     </div>
 
     <div class="card-meta">
@@ -234,7 +213,7 @@ function renderTransformationCards() {
   });
 }
 
-function setStageState(after, restartProgress = true) {
+function setStageState(after) {
   showingAfter = after;
 
   if (!stage) return;
@@ -244,7 +223,7 @@ function setStageState(after, restartProgress = true) {
   stage.classList.toggle("is-after", after);
 
   if (stageLabel) {
-    stageLabel.textContent = after ? "AFTER" : "BEFORE";
+    stageLabel.textContent = after ? "FINISHED RESULT" : "HOW IT’S MADE";
   }
 
   if (stageCaption) {
@@ -253,35 +232,11 @@ function setStageState(after, restartProgress = true) {
       : project.beforeCaption;
   }
 
-  if (stageToggle) {
-    stageToggle.setAttribute(
-      "aria-label",
-      after ? "Show before image" : "Show after image",
-    );
-  }
-
-  if (restartProgress) {
-    restartProgressBar();
-  }
-}
-
-function restartProgressBar() {
-  if (!stageProgress) return;
-
-  stageProgress.style.animation = "none";
-
-  void stageProgress.offsetWidth;
-
-  stageProgress.style.animation = `stageProgress ${AUTO_MS}ms linear`;
-}
-
-function scheduleAuto() {
-  clearTimeout(autoTimer);
-
-  autoTimer = setTimeout(() => {
-    setStageState(!showingAfter);
-    scheduleAuto();
-  }, AUTO_MS);
+  stageViewButtons.forEach((button) => {
+    const selected = button.dataset.stageView === (after ? "finished" : "making");
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-pressed", selected ? "true" : "false");
+  });
 }
 
 function renderProject(index, shouldScroll = false) {
@@ -329,7 +284,6 @@ function renderProject(index, shouldScroll = false) {
   }
 
   setStageState(false);
-  scheduleAuto();
 
   if (shouldScroll && featured) {
     featured.scrollIntoView({
@@ -337,11 +291,6 @@ function renderProject(index, shouldScroll = false) {
       block: "center",
     });
   }
-}
-
-function toggleStage() {
-  setStageState(!showingAfter);
-  scheduleAuto();
 }
 
 function applyFilter(filter) {
@@ -377,41 +326,11 @@ document.querySelectorAll(".filter-tab").forEach((tab) => {
   });
 });
 
-if (stage) {
-  stage.addEventListener("click", (event) => {
-    if (event.target.closest("[data-stage-toggle]")) {
-      return;
-    }
-
-    toggleStage();
+stageViewButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setStageState(button.dataset.stageView === "finished");
   });
-
-  stage.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      toggleStage();
-    }
-  });
-
-  stage.addEventListener("mouseenter", () => {
-    clearTimeout(autoTimer);
-  });
-
-  stage.addEventListener("mouseleave", scheduleAuto);
-
-  stage.addEventListener("focusin", () => {
-    clearTimeout(autoTimer);
-  });
-
-  stage.addEventListener("focusout", scheduleAuto);
-}
-
-if (stageToggle) {
-  stageToggle.addEventListener("click", (event) => {
-    event.stopPropagation();
-    toggleStage();
-  });
-}
+});
 
 renderProject(0);
 

@@ -448,6 +448,10 @@ button {
     background: rgba(255, 255, 255, .24)
 }
 
+.stage-progress {
+    display: none
+}
+
 .stage-progress span {
     display: block;
     width: 100%;
@@ -457,33 +461,36 @@ button {
     animation: stageProgress 4800ms linear
 }
 
-.stage-toggle {
+.stage-views {
     position: absolute;
     z-index: 8;
     left: 50%;
     top: 50%;
-    width: 58px;
-    height: 58px;
-    display: grid;
-    place-items: center;
+    display: flex;
+    gap: 6px;
     transform: translate(-50%, -50%);
+}
+
+.stage-toggle {
+    width: auto;
+    min-height: 42px;
+    padding: 0 18px;
     border: 1px solid rgba(255, 255, 255, .7);
-    border-radius: 50%;
-    background: rgba(23, 22, 21, .58);
+    border-radius: 2px;
+    background: rgba(23, 22, 21, .82);
     backdrop-filter: blur(10px);
     color: white;
-    font-size: 20px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
     transition: transform .3s ease, background .3s ease
 }
 
-.transformation-stage:hover .stage-toggle {
-    transform: translate(-50%, -50%) scale(1.08);
+.stage-toggle:hover,
+.stage-toggle.active {
     background: var(--red)
 }
 
-.transformation-stage.is-after .stage-toggle {
-    background: var(--red)
-}
+.stage-toggle:focus-visible { outline: 2px solid white; outline-offset: 3px }
 
 .transformation-info {
     display: flex;
@@ -1118,8 +1125,11 @@ button {
     }
 
     .stage-toggle {
-        width: 52px;
-        height: 52px
+        width: auto;
+        min-height: 40px;
+        height: auto;
+        padding: 0 12px;
+        font-size: 8px
     }
 
     .stage-bottomline {
